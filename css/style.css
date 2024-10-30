@@ -1,0 +1,294 @@
+html{
+    font-size: 62.5%;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    margin-top: 5px;
+    margin-left: 10px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    position: relative;
+}
+
+body{
+    display: flex;
+    transition: background-color 1s;
+}
+.dark{
+    background-color: black;
+    color: white;
+}
+.sun, .moon{
+    position: relative;
+    /* position: absolute; */
+    margin-top: -55px;
+    margin-left: 10px;
+    font-size: 10rem;
+    width: fit-content;
+    height: fit-content;
+}
+.moon{
+    position: absolute;
+    inset: 0;
+
+}
+.moon-logo{
+    opacity: 0;
+    transform: translateY(20%) rotateZ(50deg);
+    transition: all 1s ease-out;
+}
+.sun-logo{
+    opacity: 1;
+    transform: translateY(0) rotateZ(0deg);
+    transition: all 1s ease-out;
+}
+.animate-sun{
+    opacity: 0;
+    transform: translateY(20%) rotateZ(100deg);
+}
+.animate-moon{
+    opacity: 1;
+    transform: translateY(0%) rotateZ(0deg);
+}
+
+@font-face {
+    font-family:'pop';
+    src: url('Fonts/Poppins-Medium.ttf');
+}
+
+/*Posicionando a div do logo laranja*/
+.logo{
+   position: relative;
+}
+
+/*Posicionando o logo laranja*/
+img{
+    margin-left: 45%;
+    position: fixed;
+    margin-top: 50px;
+}
+
+/*Estilizando o conteúdo do site*/
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: pop;
+    flex-direction: column;
+}
+
+@keyframes animate{
+    0%{
+        height: 25%;
+    }
+    25%{
+        height: 50%;
+    }
+    50%{
+        height: 65%;
+    }
+    75%{
+        height: 40%;
+    }
+    100%{
+        height: 10%;
+    }
+}
+
+.head{
+    text-align: center;
+}
+
+.head_1{
+    position: relative;
+    font-size: 40px;
+    font-weight: 600;
+    color: #333;
+}
+
+.head_1::before{
+    content: 'Acompanhe o status do envio do seu'; 
+    position: absolute;
+    top: 0;
+    right: 68px;
+    width: 100%;
+    height: 100%;
+    color: #ff4732;
+    overflow: hidden;
+    animation: animate 3s infinite; 
+}
+
+.head_1 span{
+    position: relative;
+    color: #333;
+}
+
+.head_1 span::before{
+    content: 'Crachá'; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #ff4732;
+    overflow: hidden;
+    animation: animate 3s infinite; 
+}
+
+.head_2{
+    position: relative;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 3px;
+}
+
+ul{
+    display: flex;
+    margin-top: 80px;
+}
+
+ul li{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul li .icon{
+    font-size: 35px;
+    color: #ff4732;
+    margin: 0 60px;
+}
+
+#truck{
+    transform: scaleX(-1);
+}
+
+ul li .text{
+    font-size: 14px;
+    font-weight: 600;
+    color: #ff4732;
+}
+
+/* Progress Div Css  */
+
+ul li .progress{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(68, 68, 68, 0.781);
+    margin: 14px 0;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    position: relative;
+    cursor: pointer;
+}
+
+.progress::after{
+    content: " ";
+    position: absolute;
+    width: 125px;
+    height: 5px;
+    background-color: rgba(68, 68, 68, 0.781);
+    right: 30px;
+}
+
+.one::after{
+    width: 0;
+    height: 0;
+}
+
+ul li .progress .uil{
+    display: none;
+}
+
+ul li .progress p{
+    font-size: 13px;
+}
+
+/* Active Css  */
+
+ul li .active{
+    background-color: #ff4732;
+    display: grid;
+    place-items: center;
+}
+
+li .active::after{
+    background-color: #ff4732;
+}
+
+ul li .active p{
+    display: none;
+}
+
+ul li .active .uil{
+    font-size: 20px;
+    display: flex;
+}
+
+.truck{
+    transform: scaleX(-1);
+}
+
+@media(max-width: 600px){
+    img{
+       position: fixed;
+       width: 70px;
+       top: 10px;
+       margin: auto;
+       margin-left: 250px;
+       }
+       .container{
+        position: fixed;
+       }
+    main{
+        margin-top: 25px;
+    }
+    ul{
+        flex-direction: column;
+    }
+    ul li{
+        flex-direction: row;
+    }
+    ul li .progress{
+        margin: 0 30px;
+    }
+    .progress::after{
+        width: 5px;
+        height: 40px;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+    }
+    .one::after{
+        height: 0;
+    }
+    ul li .icon{
+        font-size: 35px;
+        margin: 15px 0;
+    }
+    .head .head_1{
+        font-size: 24px;
+        margin-top: 25px;
+    }
+
+    .head_1::before{
+    right: 42px; 
+    }
+    .head .head_2{
+        font-size: 16px;
+        margin-bottom: -70px;
+    }
+}
